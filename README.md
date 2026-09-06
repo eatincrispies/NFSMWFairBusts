@@ -14,7 +14,7 @@ then you're in a normal pursuit again.
 
 ![Boxed in by cops at heat 6 with the busted meter barely started](images/pursuit.jpg)
 
-*Boxed in at heat 6 — the busted meter still has to earn it.*
+*Boxed in at heat 6 — while car is in reset*
 
 ## What you need
 
