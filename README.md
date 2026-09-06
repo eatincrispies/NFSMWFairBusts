@@ -50,11 +50,6 @@ quickly, but you can still drive your way out of it.
 
 **`Enabled`** — set to `0` to switch the mod off without removing it.
 
-## Did it work?
-
-Look for `NFSMWFairBusts.log` in your `scripts` folder after launching. It holds
-one line:
-
 ```
 Mod injected and applied to v1.3 and C0516B485065FABDD69579816B5DF763
 ```
