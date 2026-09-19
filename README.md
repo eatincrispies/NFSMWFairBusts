@@ -61,8 +61,8 @@ didn't load, the line says why instead.
 ## Building
 
 Only if you want to compile it yourself. Open `NFSMWFairBusts.sln` and build
-Release|Win32, or run `build.bat` with a 32-bit MinGW-w64 g++. The CRT is linked
-statically, so there's no redistributable to chase.
+Release|Win32, or run `build.bat` with a 32-bit MinGW-w64 g++ that supports
+C++20. The runtime is linked statically, so there's no redistributable to chase.
 
 ## License
 

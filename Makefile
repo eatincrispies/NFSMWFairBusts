@@ -4,17 +4,20 @@
 #   mingw32-make clean
 #   mingw32-make install GAME="C:/path/to/NFSMW"
 #
-# Requires a 32-bit MinGW-w64 g++ (i686-w64-mingw32). The plugin uses no C++
-# runtime, so nothing beyond libgcc is linked. For MSVC see README.md.
+# Requires a 32-bit MinGW-w64 g++ (i686-w64-mingw32) with C++20 support. The
+# runtime is linked statically, so the .asi needs nothing installed alongside it.
+# Structured exception handling (__try/__except) is MSVC-only; the MinGW build
+# falls back to VirtualQuery-based pointer validation. For MSVC see README.md.
 
 CXX      ?= g++
 TARGET   := build/NFSMWFairBusts.asi
 SOURCES  := $(wildcard src/*.cpp)
 OBJECTS  := $(patsubst src/%.cpp,build/%.o,$(SOURCES))
 
-CXXFLAGS := -m32 -std=c++17 -O2 -Wall -Wextra -fno-strict-aliasing \
-            -fno-exceptions -fno-rtti
-LDFLAGS  := -m32 -shared -static -static-libgcc -Wl,--exclude-all-symbols -ladvapi32
+CXXFLAGS := -m32 -std=c++20 -O2 -Wall -Wextra -fno-strict-aliasing \
+            -fno-exceptions -fno-rtti -DNOMINMAX -DWIN32_LEAN_AND_MEAN
+LDFLAGS  := -m32 -shared -static -static-libgcc -static-libstdc++ \
+            -Wl,--exclude-all-symbols -Wl,-u,___mingw_SEH_error_handler -ladvapi32
 
 .PHONY: all clean install
 
